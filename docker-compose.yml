@@ -1,0 +1,11 @@
+version: '3'
+services:
+  gdb_libstdcpp_libc:
+    container_name: gdb_libstdcpp_libc
+    build: .
+    cap_add:
+    - SYS_PTRACE
+    volumes:
+    - ./:/home/dev
+    security_opt:
+    - seccomp:unconfined

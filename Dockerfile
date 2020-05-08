@@ -11,13 +11,13 @@ RUN mkdir /home/download
 WORKDIR /home/download
 RUN apt-get source libstdc++6-8-dbg 
 
-RUN cd gcc-8-8.3.0 && tar xvf gcc-8.3.0.tar.xz
+RUN cd gcc-8-8.4.0 && tar xvf gcc-8.4.0.tar.xz
 
 RUN mkdir -p /home/download/a/a/a/a/a/a
-RUN ln -s /home/download/gcc-8-8.3.0/gcc-8.3.0 /home/download/src
+RUN ln -s /home/download/gcc-8-8.4.0/gcc-8.4.0 /home/download/src
 
 RUN sed -i '25isys.path.append(pythondir)' /usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/debug/libstdc++.so.6.0.25-gdb.py
 
-RUN cd /home/download/gcc-8-8.3.0/gcc-8.3.0/libstdc++-v3/include/ && for file in std/*; do ln -s $file .; done
+RUN cd /home/download/gcc-8-8.4.0/gcc-8.4.0/libstdc++-v3/include/ && for file in std/*; do ln -s $file .; done
 
 CMD ["bash"]
